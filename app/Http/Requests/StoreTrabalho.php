@@ -27,7 +27,7 @@ class StoreTrabalho extends FormRequest
             return ['cpf' => $value];
         };
         $this->merge([
-            'cpfs' => array_map($func, $this->cpf),
+            'cpfs' => array_map($func, $this->cpf ?? []),
         ]);
     }
 

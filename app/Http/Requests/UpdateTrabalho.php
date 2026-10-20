@@ -80,7 +80,7 @@ class UpdateTrabalho extends FormRequest
         } else {
             $arquivo = Arquivo::where("trabalhoId", $projeto->id)->first();
             $rules['anexoPlanoTrabalho'] = [Rule::requiredIf($arquivo == null)];
-            $rules['nomePlanoTrabalho'] = [Rule::requiredIf($arquivo->titulo == null), 'string'];
+            $rules['nomePlanoTrabalho'] = [Rule::requiredIf($arquivo == null || $arquivo->titulo == null), 'string'];
         }
         
         // dd($this->all());
